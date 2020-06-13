@@ -4,7 +4,8 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+I am a freelance web developer. I generally make website templates and themes. I know HTML5, CSS3 and JavaScript(advanced).
+
 
 ### More Information
 
