@@ -3,15 +3,13 @@
     <ul class="nav flex-column">
     {% for nav in site.data.sidenav %}
         <li class="nav-item">
-          <a class="nav-link" href="{{nav.uri}}">{{nav.title}}</a>
+          <a class="nav-link text-muted" data-bs-toggle="collapse" href="#{{nav.title}}" role="button" aria-expanded="false" aria-controls="{{nav.title}}">{{nav.title}}</a>
           {% if nav.plural %}
-            <ul class="nav flex-column ms-3">
-              {% for submenu  in nav.menus %}
-                <li class="nav-item">
-                  <a class="nav-link" href="{{submenu.uri}}">{{submenu.title}}</a>
-                </li>
+          <nav class="nav collapse" id="{{nav.title}}">
+            {% for submenu  in nav.menus %}
+                  <a class="nav-link {% if submenu.uri == page.url %}active{% endif %}" href="{{submenu.uri}}">{{submenu.title}}</a>
               {% endfor %}
-            </ul>
+          </nav>
           {% endif %}
         </li>
     {% endfor %}
