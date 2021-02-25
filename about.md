@@ -1,6 +1,7 @@
 ---
 layout: page
 title: About
+permalink: /about/
 ---
 
 I am a freelance web developer. I generally make website templates and themes. I know HTML5, CSS3 and JavaScript(advanced).
