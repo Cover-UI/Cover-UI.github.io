@@ -3,8 +3,18 @@
     <ul class="nav flex-column">
     {% for nav in site.data.sidenav %}
         <li class="nav-item">
-          <a class="nav-link text-muted" data-bs-toggle="collapse" href="#{{nav.title}}" role="button" aria-expanded="false" aria-controls="{{nav.title}}">{{nav.title}} <i class="material-icons">
-            keyboard_arrow_down</i></a>
+          <a class="nav-link text-muted" data-bs-toggle="collapse" href="#{{nav.title}}" role="button" aria-expanded="false" aria-controls="{{nav.title}}">
+            <span class="d-flex justify-content-between">
+              <span class="d-block">
+                {{nav.title}}
+              </span>
+              {% if nav.plural %}  
+              <i class="material-icons d-block">
+                keyboard_arrow_down
+              </i>
+            {% endif %}
+            </span>
+          </a>
           {% if nav.plural %}
           <nav class="collapse" id="{{nav.title}}">
             <ul class="list-group list-group-flush ms-3">
