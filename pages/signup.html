@@ -1,0 +1,67 @@
+---
+title: Sign Up
+layout: page
+permalink: "/signup/"
+---
+
+
+<div class="container my-3">
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-4 offset-md-3 offset-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="h3 mb-3">Sign Up</h1>
+                    <div class="mb-3" id="alert-area">
+
+                    </div>
+                    <div class="mb-3">
+                        <label for="email">
+                            Email
+                        </label>
+                        <input class="form-control" type="text" name="email" id="email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password">
+                            Password
+                        </label>
+                        <input class="form-control" type="password" name="password" id="password">
+                    </div>
+                    <button class="btn btn-success" id="submit">Sign In</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+let alert_area = document.querySelector("#alert-area") 
+document.querySelector("#submit").addEventListener("click",function(e){
+    let email = document.querySelector("#email").value;
+    let pass = document.querySelector("#password").value;
+    if(email && pass){
+        firebase.auth().createUserWithEmailAndPassword(email, pass)
+        .then((user) => {
+            let el = document.createElement("div");
+            el.className = "alert alert-success";
+            el.innerText = "Sign Up is succesful! Redirecting to Home Page...";
+            alert_area.appendChild(el);
+            setTimeout(() => {
+                location.href = "/";
+            }, 1250);
+        })
+        .catch((error) => {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            let el = document.createElement("div");
+            el.className = "alert alert-danger";
+            el.innerText = errorMessage;
+            alert_area.appendChild(el);
+            setTimeout(() => {
+                el.remove();
+            }, 5000);
+        });
+    }
+    
+})
+
+ 
+</script>

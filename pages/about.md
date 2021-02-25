@@ -1,7 +1,6 @@
 ---
 layout: page
 title: About
-permalink: /about/
 ---
 
 I am a freelance web developer. I generally make website templates and themes for Blogger and Wordpress. I know HTML5, CSS3 and JavaScript(advanced). In addtion, I can write backend. I am using Flask.

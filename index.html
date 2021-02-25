@@ -1,18 +1,61 @@
 ---
 layout: default
 ---
+<section class="enter-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 title">
+                    <img src="{{ site.avatar }}" alt="{{site.name}}" width="50px">
+                    {{site.name}}
+                    <p class="h5">New Generation UI Tool.</p>
+                </div>
+            </div>
+            <div class="my-4 mx-auto buttons">
+                <div class="d-inline text-center button my-auto pl-2 py-2">
+                    <div class="d-inline v-align-sub">
+                        <i class="fa fa-github fa-xl"></i>
+                    </div>
+                    <div class="d-inline">
+                        <a class='text-uppercase my-auto' href="">View On Github</a>
+                    </div>
+                </div>
+                <div class="button d-inline text-center my-auto">
+                    <a class='text-uppercase' href="">Get Started</a>
+                </div>
+            </div>       
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1>Products</h1>
+                    <div class="row mb-2">
+                        {% for sponsor in site.posts %}
+                            <div class="col-6 col-md-3">
+                                <a href="{{sponsor.uri}}"><img class="img-fluid rounded-circle" src="{{sponsor.avatar}}" alt="{{sponsor.title}}" title="{{sponsor.title}}"></a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="sponsorship">
+        <div class="container">
+            <div class="row">
+                <div class="col-8 offset-2 text-center">
+                    <span>Sponsors</span>
+                    <div class="row mb-2">
+                        {% for sponsor in site.data.sponsors %}
+                            <div class="col-6 col-md-3">
+                                <a href="{{sponsor.uri}}"><img class="img-fluid rounded-circle" src="{{sponsor.avatar}}" alt="{{sponsor.username}}" title="{{sponsor.username}}"></a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="posts">
-  {% for post in site.posts %}
-    <article class="post">
 
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
-
-      <div class="entry">
-        {{ post.excerpt }}
-      </div>
-
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </article>
-  {% endfor %}
-</div>

@@ -9,11 +9,6 @@ layout: default
                     <div id="content">
                         <h1>{{page.title}}</h1>
                         <small>Written on {{ page.date | date: "%B %e, %Y" }}.
-                            In  {% for c in page.categories %}
-                                    <a class="badge text-light" href="/category/{{c | downcase}}">
-                                        {{c}}
-                                    </a>  
-                                {% endfor %}
                            </small>
                         <div class="mt-3" id="blog-post-content">
                           {{content}}
@@ -37,18 +32,6 @@ layout: default
                             </script>
                         </div>
                     </div>
-                    <div class="row p-3">
-           <div class="col-6 {% if page.previous.url %} p-3 bg-primary {% endif %}">
-               {% if page.previous.url %}
-                    <a class="text-light" href="{{page.previous.url}}"><i class="fa fa-angle-left"></i> {{page.previous.title}}</a>
-                {% endif %}
-           </div>
-           <div class="col-6 {% if page.next.url %}p-3 bg-success {% endif %}">
-                {% if page.next.url %}
-                    <a class="float-end text-light" href="{{page.next.url}}">{{page.next.title}} <i class="fa fa-angle-right"></i></a>
-                {% endif %}
-           </div>
-    </div>
               
             </div>
             <div class="col-12 col-lg-3 mt-3 conIndex">
@@ -68,5 +51,17 @@ layout: default
             </div>
         </div>
     </section>
-
-
+<section class="container">
+       <div class="row">
+           <div class="col-6">
+               {% if page.previous.url %}
+                    <a href="{{page.previous.url}}">&laquo; {{page.previous.title}}</a>
+                {% endif %}
+           </div>
+           <div class="col-6">
+                {% if page.next.url %}
+                    <a class="float-end" href="{{page.next.url}}">{{page.next.title}} &raquo;</a>
+                {% endif %}
+           </div>
+    </div>
+</section>
