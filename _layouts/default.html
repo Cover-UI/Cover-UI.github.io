@@ -20,11 +20,21 @@
       <div class="row">
         <div class="col-2">
           <aside>
-            <nav class="nav flex-column"> 
-            <ul>
+            <nav> 
+            <ul class="nav flex-column">
             {% for nav in site.data.sidenav %}
                 <li class="nav-item">
-                  <a class="nav-link" href="#">{{nav.title}}</a>
+                  <a class="nav-link" href="{{nav.uri}}">{{nav.title}}</a>
+                  {% if nav.plural %}
+                    <ul class="nav flex-column">
+                      {% for submenu  in nav.menus %}
+                        <li class="nav-item">
+                          <a class="nav-link" href="{{submenu.uri}}">{{submenu.title}}</a>
+                        </li>
+                      {% endfor %}
+                      
+                    </ul>
+                  {% endif %}
                 </li>
             {% endfor %}
              
