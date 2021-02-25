@@ -16,6 +16,30 @@
   </head>
 
   <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-2">
+          <aside>
+            <nav class="nav flex-column"> 
+            <ul>
+            {% for nav in site.data.sidenav %}
+                <li class="nav-item">
+                  <a class="nav-link" href="#">{{nav.title}}</a>
+                </li>
+            {% endfor %}
+             
+              </ul>
+            </nav>
+          </aside>
+        </div>
+        <div class="col-10 bg-secondary">
+          
+        </div>
+      </div>
+    </div>
+
+
+
     <div class="wrapper-masthead">
       <div class="container">
         <header class="masthead clearfix">
