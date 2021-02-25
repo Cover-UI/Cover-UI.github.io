@@ -3,7 +3,11 @@
     <ul class="nav flex-column">
     {% for nav in site.data.sidenav %}
         <li class="nav-item">
-          <a class="nav-link text-muted" data-bs-toggle="collapse" href="#{{nav.title}}" role="button" aria-expanded="false" aria-controls="{{nav.title}}">
+          {% if nav.plural %}
+            <a class="nav-link text-muted" data-bs-toggle="collapse" href="#{{nav.title}}" role="button" aria-expanded="false" aria-controls="{{nav.title}}">
+          {% else %}
+          <a class="nav-link text-muted" href="{{nav.uri}}">
+          {% endif %}
             <span class="d-flex justify-content-between">
               <span class="d-block">
                 {{nav.title}}
