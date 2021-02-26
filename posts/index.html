@@ -4,7 +4,7 @@ title: My Blog
 ---
 
 
-<div class="container mt-3">
+<div class="container mt-5">
     <div class="row">
         <div class="col-9">
             {% for post in paginator.posts %}
@@ -12,14 +12,14 @@ title: My Blog
                 <div class="card-body">
                     <h2><a class="text-dark" style="text-decoration: none;" href="{{post.url}}">{{ post.title }}</a></h2>
                     <div class="row">
-                        <div class="col-12 col-md-6 col-lg-4">
+                        <div class="col-12 col-md-6">
                             {% if post.thumbnail %}
                             <img src="{{ post.thumbnail }}" class="img-fluid rounded w-100" alt="{{ post.title }}">
                             {% else %}
                             <img src="{{ site.avatar }}" class="img-fluid rounded w-100" alt="{{ post.title }}">
                             {% endif %}
                         </div>
-                        <div class="col-12 col-md-6 col-lg-8 my-auto text-muted">
+                        <div class="col-12 col-md-6 my-auto text-muted">
                         {{post.excerpt}}
                         </div>
                     </div>
@@ -35,22 +35,13 @@ title: My Blog
                     <li class="page-item {% if paginator.previous_page_path %}{% else %}disabled{% endif %}">
                         <a class="page-link" href="{{ paginator.previous_page_path }}" tabindex="-1" aria-disabled="true">Previous</a>
                     </li>
-                    {% assign pages = paginator.total_pages%}
-                    {% assign cur_pages = (paginator.page-1, paginator.page, paginator.page+1) %}
-
-                    {% for page in cur_pages %}
-                    <li class="page-item {% if paginator.page == page %}active{% endif %}" aria-current="page">
-                        {% if page == 0 %}
-                            {% continue %}
+                    <li class="page-item active" aria-current="page">
+                        {% if paginator.page == 1 %}
+                            <a class="page-link" href="/posts/">{{page}}</a>
                         {% else %}
-                            {% if page == 1 %}
-                                <a class="page-link" href="/posts/">{{page}}</a>
-                            {% else %}
-                                <a class="page-link" href="/posts/page{{page}}/">{{page}}</a>
-                            {% endif %}
+                            <a class="page-link" href="/posts/page{{page}}/">{{page}}</a>
                         {% endif %}
                     </li>
-                    {% endfor %}
                     <li class="page-item {% if paginator.next_page_path %}{% else %}disabled{% endif %}">
                         <a class="page-link" href="{{paginator.next_page_path}}">Next</a>
                     </li>
