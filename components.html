@@ -1,0 +1,14 @@
+---
+layout: default
+permalink: /components/
+title: Components
+---
+
+{% for comp in site.components %}
+  <h2>
+    <a href="{{ comp.url }}">
+      {{ comp.title }}
+    </a>
+  </h2>
+  <p>{{ comp.content | markdownify }}</p>
+{% endfor %}
