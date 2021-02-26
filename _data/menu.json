@@ -1,23 +1,34 @@
 [
     {
+      "plural": false,
+      "title": "Home",
+      "uri": "/"
+    },
+    {
       "plural": true,
-      "title": "Menu",
+      "title": "Who am I?",
       "uri": "#",
       "menus": [{
-        "title": "Menu1",
-        "uri": "#",
-        "category": "Docs"
+        "title": "Stingy Developer Official Blog",
+        "uri": "https://stingy-developer.blogspot.com/",
+        "category": "Websites"
       },
       {
-        "title": "Menu2",
-        "uri": "#",
-        "category": "Docs"
+        "title": "Stingy Developer Medium Blog",
+        "uri": "https://medium.com/stingy-developer",
+        "category": "Websites"
       },
       {
-        "title": "Menu3",
-        "uri": "#",
-        "category": "Docs1"
-      }]
+        "title": "Instagram",
+        "uri": "https://instagram.com/stingy-developer",
+        "category": "Social Media"
+      },
+      {
+        "title": "Youtube",
+        "uri": "https://www.youtube.com/channel/UCczSw_VRVvRKDGZopL_0LlA",
+        "category": "Social Media"
+      }
+    ]
     },
      {
       "plural": false,
