@@ -1,8 +1,30 @@
 ---
 layout: default
 ---
+<style>
+header{
+  width: 100vw;
+    overflow: hidden;
+    position: relative;
+    height: 100vh;
+    z-index: 999;
+    background-color: #fbd543;
+}
+.navbar{
+  z-index: 999;
+}
+
+img.hero{
+  position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+    height: 100vh;
+}
+
+</style>
 <header>
   {% include navbar.html %}
-  <img src="{{site.baseurl}}/images/hero.jpg" alt="">
+  <img class="hero" src="{{site.baseurl}}/images/hero1.jpg" alt="">
 </header>
 
