@@ -19,6 +19,11 @@
         "category": "Docs1"
       }]
     },
+     {
+      "plural": false,
+      "title": "About",
+      "uri": "/about/"
+    },
     {
       "plural": false,
       "title": "Blog",
