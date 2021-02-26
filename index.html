@@ -12,23 +12,35 @@ header{
 }
 .navbar{
   z-index: 999;
-  background: rgb(251,212,64);
+    /* background: rgb(0,0,0,.2); */
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
 }
 
 img.hero{
   position: absolute;
     left: 0;
     top: 0;
-    z-index: 0;
+    z-index: -1;
     height: 100vh;
+}
+
+.hero-con{
+  max-width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,.2);
+    /* z-index: 55; */
+    display: flex;
 }
 
 </style>
 <header>
   {% include navbar.html %}
-  <div class="container">
-    <div class="row">
-      <div class="col-12 col-md-6 offset-md-6">
+  <div class="container hero-con">
+    <div class="row my-auto">
+      <div class="col-12 col-md-5 text-center offset-md-6">
         <h1>Your Perfect Toolkit For Beautiful Websites</h1>
         <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam mollitia dolorem facere dolor consequuntur aut?</p>
       </div>
