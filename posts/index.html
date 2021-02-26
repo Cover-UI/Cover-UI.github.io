@@ -36,7 +36,7 @@ title: My Blog
                         <a class="page-link" href="{{ paginator.previous_page_path }}" tabindex="-1" aria-disabled="true">Previous</a>
                     </li>
                     {% assign pages = paginator.total_pages%}
-                    {% assign cur_pages = paginator.page-1, paginator.page, paginator.page+1 %}
+                    {% assign cur_pages = (paginator.page-1, paginator.page, paginator.page+1) %}
 
                     {% for page in cur_pages %}
                     <li class="page-item {% if paginator.page == page %}active{% endif %}" aria-current="page">
