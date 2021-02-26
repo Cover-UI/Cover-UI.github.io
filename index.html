@@ -8,10 +8,11 @@ header{
     position: relative;
     height: 100vh;
     z-index: 999;
-    background-color: #fbd543;
+    background: linear-gradient(0deg, #f4cd42, #fdd744,#fad23e);
 }
 .navbar{
   z-index: 999;
+  background: rgb(251,212,64);
 }
 
 img.hero{
@@ -25,6 +26,14 @@ img.hero{
 </style>
 <header>
   {% include navbar.html %}
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-6 offset-md-6">
+        <h1>Your Perfect Toolkit For Beautiful Websites</h1>
+        <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam mollitia dolorem facere dolor consequuntur aut?</p>
+      </div>
+    </div>
+  </div>
   <img class="hero" src="{{site.baseurl}}/images/hero1.jpg" alt="">
 </header>
 
