@@ -49,7 +49,7 @@
       "plural": false,
       "title": "Register",
       "uri": "/signup/",
-      "class": "btn btn-success text-light unauth"
+      "class": "text-light rounded-pill bg-success text-light unauth"
     },
     {
       "plural": false,
