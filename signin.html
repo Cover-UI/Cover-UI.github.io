@@ -61,7 +61,7 @@ document.querySelector("#submit").addEventListener("click",function(e){
                 let cur_user = firebase.auth().currentUser;
                 
                 database.child("profile").child(cur_user.userId).get().then(function(profile) {
-                  if !(profile.exists()) {
+                  if (!profile.exists()) {
                         firebase.database().ref('profile/' + cur_user.userId ).set({
                             role: "profile_user",
                             verified: cur_user.emailVerified,
