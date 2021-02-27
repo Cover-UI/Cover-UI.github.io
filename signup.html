@@ -46,7 +46,7 @@ document.querySelector("#submit").addEventListener("click",function(e){
             el.innerText = "Sign Up is succesful! Please, wait!";
             alert_area.appendChild(el);
             
-            user.sendEmailVerification().then(function() {
+            firebase.auth().currentUser.sendEmailVerification().then(function() {
                 let el = document.createElement("div");
                 el.className = "alert alert-success";
                 el.innerText = "Verification Email sent! You should verify your account to sign in. Redirecting to Sign In Page...";
