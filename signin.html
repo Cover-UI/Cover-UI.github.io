@@ -53,13 +53,17 @@ document.querySelector("#submit").addEventListener("click",function(e){
     if(email && pass){
         firebase.auth().signInWithEmailAndPassword(email, pass)
         .then((user) => {
-                let el = document.createElement("div");
+           
+            console.log(user);
+               
+            let el = document.createElement("div");
                 el.className = "alert alert-success";
                 el.innerText = "Sign In is succesful! Profile is checking...";
                 alert_area.appendChild(el);
                 
                 let cur_user = firebase.auth().currentUser;
                 var database = firebase.firestore();
+            console.log(cur_user.uid);
                 database.collection("profile").doc(cur_user.uid).get().then(function(profile) {
                   if (!profile.exists) {
                         database.collection('profile').doc(cur_user.uid).set({
