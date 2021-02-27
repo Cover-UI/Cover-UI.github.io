@@ -48,12 +48,20 @@
     {
       "plural": false,
       "title": "Register",
-      "uri": "/signup/"
+      "uri": "/signup/",
+      "class": "border rounded bg-success unauth"
     },
     {
       "plural": false,
       "title": "Sign In",
-      "uri": "/signin/"
+      "uri": "/signin/",
+      "class": "unauth"
+    },
+    {
+      "plural": false,
+      "title": "Profile",
+      "uri": "/profile/",
+      "class": "auth"
     }
     
 ]
