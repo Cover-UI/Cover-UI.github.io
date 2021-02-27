@@ -34,3 +34,49 @@ $(".component").click(function(e){
        console.log(error); 
     }
 });
+
+// auth
+
+function unAuthMode(el="",state){
+    let ele = document.querySelectorAll(el);
+    if(state){
+        ele.forEach(function(e){
+            e.style.display = "";
+        }) 
+    }else{
+        ele.forEach(function(e){
+            e.style.display = "none";
+        })
+    }
+}
+
+let username = document.querySelector("#user");
+
+firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      userSession = true;
+      unAuthMode(".unauth",false);
+      unAuthMode(".auth",true);
+      username.innerText = `Hi ${user.displayName}`;
+    } else {
+      userSession = false;
+      unAuthMode(".unauth",true);
+      unAuthMode(".auth",false);
+    }
+    DOMLoaded();
+  });
+
+
+function DOMLoaded() {
+    document.querySelector(".preloader").style.display = "none";
+    document.querySelector("body").classList.remove("preload");
+}
+
+
+document.querySelector("#signout").addEventListener("click",() => {
+    firebase.auth().signOut().then(function() {
+        // Sign-out successful.
+      }).catch(function(error) {
+        // An error happened.
+      });
+})
