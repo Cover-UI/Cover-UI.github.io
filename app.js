@@ -57,7 +57,7 @@ firebase.auth().onAuthStateChanged((user) => {
       userSession = true;
       unAuthMode(".unauth",false);
       unAuthMode(".auth",true);
-      username.innerText = `Hi ${user.displayName}`;
+      username.innerHTML = `<a class="nav-link single " href="#">Hi ${user.email}</a>`;
     } else {
       userSession = false;
       unAuthMode(".unauth",true);
