@@ -42,8 +42,21 @@ document.querySelector("#submit").addEventListener("click",function(e){
         .then((user) => {
                 let el = document.createElement("div");
                 el.className = "alert alert-success";
-                el.innerText = "Sign In is succesful! Redirecting to Home Page...";
+                el.innerText = "Sign In is succesful! Profile is checking...";
                 alert_area.appendChild(el);
+                
+                let cur_user = firebase.auth().currentUser;
+                firebase.database().ref('profile/' + cur_user.userId ).set({
+                    role: "profile_user",
+                    verified: cur_user.emailVerified,
+                    user: cur_user.userId
+                  });
+            
+                let el = document.createElement("div");
+                el.className = "alert alert-success";
+                el.innerText = "Profile Check is succesful! Redirecting to Home Page...";
+                alert_area.appendChild(el);
+            
                 setTimeout(() => {
                     location.href = "/";
                 }, 1250);
