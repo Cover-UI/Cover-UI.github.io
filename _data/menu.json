@@ -61,7 +61,7 @@
       "plural": false,
       "title": "Profile",
       "uri": "/profile/",
-      "class": "auth user"
+      "class": "auth"
     },
     {
       "plural": false,
