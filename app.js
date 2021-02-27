@@ -72,7 +72,7 @@ function DOMLoaded() {
 }
 
 
-document.querySelector("#signout").addEventListener("click",() => {
+$("#signout").click(() => {
     firebase.auth().signOut().then(function() {
         // Sign-out successful.
       }).catch(function(error) {
