@@ -62,6 +62,12 @@
       "title": "Profile",
       "uri": "/profile/",
       "class": "auth user"
+    },
+    {
+      "plural": false,
+      "title": "Hi",
+      "uri": "#",
+      "class": "auth user"
     }
     
 ]
