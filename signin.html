@@ -60,12 +60,12 @@ document.querySelector("#submit").addEventListener("click",function(e){
                 
                 let cur_user = firebase.auth().currentUser;
                 var database = firebase.firestore();
-                database.collection("profile").doc(cur_user.userId).get().then(function(profile) {
+                database.collection("profile").doc(cur_user.uid).get().then(function(profile) {
                   if (!profile.exists) {
-                        database.collection('profile').doc(cur_user.userId).set({
+                        database.collection('profile').doc(cur_user.uid).set({
                             role: "profile_user",
                             verified: cur_user.emailVerified,
-                            user: cur_user.userId
+                            user: cur_user.uid
                         });
                         
                         let el = document.createElement("div");
