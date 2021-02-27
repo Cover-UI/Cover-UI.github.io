@@ -32,8 +32,21 @@ permalink: /signin/
     </div>
 </div>
 <script>
+   
 let alert_area = document.querySelector("#alert-area");
-  
+ 
+function sendAlert(error){
+    var errorMessage = error.message;
+    let el = document.createElement("div");
+    el.className = "alert alert-danger";
+    el.innerText = errorMessage;
+    alert_area.appendChild(el);
+    setTimeout(() => {
+        el.remove();
+    }, 5000);
+}
+    
+    
 document.querySelector("#submit").addEventListener("click",function(e){
     let email = document.querySelector("#email").value;
     let pass = document.querySelector("#password").value;
@@ -46,33 +59,28 @@ document.querySelector("#submit").addEventListener("click",function(e){
                 alert_area.appendChild(el);
                 
                 let cur_user = firebase.auth().currentUser;
-                firebase.database().ref('profile/' + cur_user.userId ).set({
-                    role: "profile_user",
-                    verified: cur_user.emailVerified,
-                    user: cur_user.userId
-                  });
+                
+                database.child("profile").child(cur_user.userId).get().then(function(profile) {
+                  if !(profile.exists()) {
+                        firebase.database().ref('profile/' + cur_user.userId ).set({
+                            role: "profile_user",
+                            verified: cur_user.emailVerified,
+                            user: cur_user.userId
+                        });
+                        
+                        let el = document.createElement("div");
+                        el.className = "alert alert-success";
+                        el.innerText = "Profile Check is succesful! Redirecting to Home Page...";
+                        alert_area.appendChild(el);
+
+                        setTimeout(() => {
+                            location.href = "/";
+                        }, 1250);
+                  }
+                }).catch(sendAlert);
             
-                let el = document.createElement("div");
-                el.className = "alert alert-success";
-                el.innerText = "Profile Check is succesful! Redirecting to Home Page...";
-                alert_area.appendChild(el);
-            
-                setTimeout(() => {
-                    location.href = "/";
-                }, 1250);
-          
         })
-        .catch((error) => {
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            let el = document.createElement("div");
-            el.className = "alert alert-danger";
-            el.innerText = errorMessage;
-            alert_area.appendChild(el);
-            setTimeout(() => {
-                el.remove();
-            }, 5000);
-        });
+        .catch(sendAlert);
     }
     
 });
