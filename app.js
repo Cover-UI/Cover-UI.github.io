@@ -50,7 +50,7 @@ function unAuthMode(el="",state){
     }
 }
 
-let username = document.querySelector("#user");
+let username = document.querySelector(".user");
 
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
