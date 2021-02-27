@@ -63,13 +63,12 @@ firebase.auth().onAuthStateChanged((user) => {
       unAuthMode(".unauth",true);
       unAuthMode(".auth",false);
     }
-    DOMLoaded();
   });
 
 
 function DOMLoaded() {
-    document.querySelector(".preloader").style.display = "none";
-    document.querySelector("body").classList.remove("preload");
+    $(".preloader").hide();
+    $("body").removeClass("preload");
 }
 
 
@@ -80,3 +79,6 @@ document.querySelector("#signout").addEventListener("click",() => {
         // An error happened.
       });
 })
+
+
+$(document).ready(DOMLoaded);
