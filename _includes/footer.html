@@ -1,0 +1,20 @@
+<footer class="py-5 mt-3 bg-dark">
+    <div class="container">
+        <div class="row">
+            {% for f in site.data.footer %}
+            <div class="col-12 col-md-3">
+                <span class="text-light">{{f.title}}</span>
+                <hr width="5rem">
+                <ul class="ul">
+                    {% for d in f.datas %}
+                    <li><a class="text-muted" href="{{d.url}}">{{d.title}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</footer>
+<div class="bg-dark text-muted py-2 text-center">
+    &copy; {{site.name}}. Tüm Hakları Saklıdır.
+</div>
