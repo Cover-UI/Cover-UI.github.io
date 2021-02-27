@@ -13,13 +13,13 @@
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           {% for menu in site.data.menu %}
             {% if menu.plural==false %}
-                <li class="nav-item">
+                <li class="nav-item {{menu.class}}">
                     <a class="nav-link single {{menu.class}}" href="{{menu.uri}}">
                           {{menu.title}}
                     </a>
                 </li>
             {% else %}
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown {{menu.class}}">
                     <a class="nav-link dropdown-toggle {{menu.class}}" href="#" id="navbarDropdown" role="button"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {{menu.title|capitalize}}
