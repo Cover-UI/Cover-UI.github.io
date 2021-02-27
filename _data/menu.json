@@ -44,6 +44,16 @@
       "plural": false,
       "title": "Components",
       "uri": "/components/"
+    },
+    {
+      "plural": false,
+      "title": "Register",
+      "uri": "/signup/"
+    },
+    {
+      "plural": false,
+      "title": "Sign In",
+      "uri": "/signin/"
     }
     
 ]
