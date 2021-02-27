@@ -49,7 +49,7 @@
       "plural": false,
       "title": "Register",
       "uri": "/signup/",
-      "class": "border rounded bg-success unauth"
+      "class": "btn btn-success text-light unauth"
     },
     {
       "plural": false,
@@ -61,7 +61,7 @@
       "plural": false,
       "title": "Profile",
       "uri": "/profile/",
-      "class": "auth"
+      "class": "auth user"
     }
     
 ]
