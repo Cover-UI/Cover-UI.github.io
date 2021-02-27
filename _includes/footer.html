@@ -4,8 +4,8 @@
             {% for f in site.data.footer %}
             <div class="col-12 col-md-3">
                 <span class="text-light">{{f.title}}</span>
-                <hr width="5rem">
-                <ul class="ul">
+                <hr class="bg-light m-1">
+                <ul class="p-0">
                     {% for d in f.datas %}
                     <li><a class="text-muted" href="{{d.url}}">{{d.title}}</a></li>
                     {% endfor %}
