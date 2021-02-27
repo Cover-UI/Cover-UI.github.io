@@ -4,13 +4,7 @@ title: About
 permalink: /about/
 ---
 
-I am a freelance web developer. I generally make website templates and themes. I know HTML5, CSS3 and JavaScript(advanced).
+I started this project for **creating a collection that contains my plugins and helper scripts**. Also, this project is free and open-source. You can use components and plugins in this project and upload your components and plugins. 
 
-
-### More Information
-
-A place to include any other types of information that you'd like to include about yourself.
-
-### Contact me
-
-[mail-iletişim@code-forever.com](mailto:mail-iletişim@code-forever.com)
+## Parts Of Projects
+There are two parts of this project. First part is plugins. **These plugins are for UI frameworks** such as *Vue, React or Bootstrap*. You can use plugins for to expand the cores of these frameworks. Second part is components. **These components that are in this project, are UI components and useable with relevant UI frameworks** such as *Vue, React or Bootstrap*.
