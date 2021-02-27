@@ -59,10 +59,10 @@ document.querySelector("#submit").addEventListener("click",function(e){
                 alert_area.appendChild(el);
                 
                 let cur_user = firebase.auth().currentUser;
-                
+                var database = firebase.database();
                 database.child("profile").child(cur_user.userId).get().then(function(profile) {
                   if (!profile.exists()) {
-                        firebase.database().ref('profile/' + cur_user.userId ).set({
+                        database.ref('profile/' + cur_user.userId ).set({
                             role: "profile_user",
                             verified: cur_user.emailVerified,
                             user: cur_user.userId
