@@ -40,13 +40,14 @@ document.querySelector("#submit").addEventListener("click",function(e){
     if(email && pass){
         firebase.auth().signInWithEmailAndPassword(email, pass)
         .then((user) => {
-            let el = document.createElement("div");
-            el.className = "alert alert-success";
-            el.innerText = "Sign In is succesful! Redirecting to Home Page...";
-            alert_area.appendChild(el);
-            setTimeout(() => {
-                location.href = "/";
-            }, 1250);
+                let el = document.createElement("div");
+                el.className = "alert alert-success";
+                el.innerText = "Sign In is succesful! Redirecting to Home Page...";
+                alert_area.appendChild(el);
+                setTimeout(() => {
+                    location.href = "/";
+                }, 1250);
+          
         })
         .catch((error) => {
             var errorCode = error.code;
