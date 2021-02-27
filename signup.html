@@ -39,16 +39,34 @@ document.querySelector("#submit").addEventListener("click",function(e){
     if(email && pass){
         firebase.auth().createUserWithEmailAndPassword(email, pass)
         .then((user) => {
+            
             let el = document.createElement("div");
             el.className = "alert alert-success";
-            el.innerText = "Sign Up is succesful! Redirecting to Home Page...";
+            el.innerText = "Sign Up is succesful! Please, wait!";
             alert_area.appendChild(el);
+            
+            user.sendEmailVerification().then(function() {
+                let el = document.createElement("div");
+                el.className = "alert alert-success";
+                el.innerText = "Verification Email sent! You should verify your account to sign in. Redirecting to Sign In Page...";
+                alert_area.appendChild(el);
+             
+            }).catch(function(error) {
+                var errorMessage = error.message;
+                let el = document.createElement("div");
+                el.className = "alert alert-danger";
+                el.innerText = errorMessage;
+                alert_area.appendChild(el);
+                setTimeout(() => {
+                    el.remove();
+                }, 5000);
+            });
+            
             setTimeout(() => {
-                location.href = "/";
+                location.href = "/signin/";
             }, 1250);
         })
         .catch((error) => {
-            var errorCode = error.code;
             var errorMessage = error.message;
             let el = document.createElement("div");
             el.className = "alert alert-danger";
