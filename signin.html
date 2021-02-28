@@ -53,8 +53,7 @@ document.querySelector("#submit").addEventListener("click",function(e){
     if(email && pass){
         firebase.auth().signInWithEmailAndPassword(email, pass)
         .then((user) => {
-           /*
-            console.log(user);
+       
                
             let el = document.createElement("div");
                 el.className = "alert alert-success";
@@ -83,7 +82,7 @@ document.querySelector("#submit").addEventListener("click",function(e){
                   }
                 }).catch(sendAlert);
                 
-           */
+      
             
             let el = document.createElement("div");
                         el.className = "alert alert-success";
