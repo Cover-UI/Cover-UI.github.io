@@ -62,7 +62,7 @@ document.querySelector("#submit").addEventListener("click",function(e){
                 
                 let cur_user = firebase.auth().currentUser;
                 var database = firebase.firestore();
-            console.log(cur_user.uid);
+            
                 database.collection("profile").doc(cur_user.uid).get().then(function(profile) {
                   if (!profile.exists) {
                         database.collection('profile').doc(cur_user.uid).set({
@@ -71,7 +71,7 @@ document.querySelector("#submit").addEventListener("click",function(e){
                             user: cur_user.uid
                         });
                         
-                        let el = document.createElement("div");
+                        el = document.createElement("div");
                         el.className = "alert alert-success";
                         el.innerText = "Profile Check is succesful! Redirecting to Home Page...";
                         alert_area.appendChild(el);
@@ -84,7 +84,7 @@ document.querySelector("#submit").addEventListener("click",function(e){
                 
       
             
-            let el = document.createElement("div");
+             el = document.createElement("div");
                         el.className = "alert alert-success";
                         el.innerText = "Sign In is succesful! Redirecting to Home Page...";
                         alert_area.appendChild(el);
