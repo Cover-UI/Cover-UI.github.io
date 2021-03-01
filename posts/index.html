@@ -14,9 +14,9 @@ title: My Blog
                     <div class="row">
                         <div class="col-12 col-md-6 rounded order" style="height: 10rem;overflow: hidden;">
                             {% if post.thumbnail %}
-                            <img src="{{ post.thumbnail }}" class="img-fluid w-100" alt="{{ post.title }}">
+                            <img src="{{ post.thumbnail }}" class="bg-dark img-fluid w-100" alt="{{ post.title }}">
                             {% else %}
-                            <img src="{{ site.avatar }}" class="img-fluid w-100" alt="{{ post.title }}">
+                            <img src="{{ site.avatar }}" class="bg-dark img-fluid w-100" alt="{{ post.title }}">
                             {% endif %}
                         </div>
                         <div class="col-12 col-md-6 my-auto text-muted">
