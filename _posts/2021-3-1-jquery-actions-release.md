@@ -6,7 +6,7 @@ excerpt_separator: <!--more-->
 ---
 
 **jQuery Actions** plugin is a **jQuery** plugin for adding action and listeners of this actions on **jQuery**. You can use that for creating callback chain or ordered tasks.
-
+<!--more-->
 ## Installation
 ```html
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
