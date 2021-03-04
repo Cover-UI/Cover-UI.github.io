@@ -22,6 +22,7 @@ Container of the list group
 #### props
 * flush : "list-group-flush".
 * action : createa div container element instead of ul.
+
 ### b-list-item
 #### props
 * disabled
