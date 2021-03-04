@@ -15,26 +15,6 @@ $inp.on('input',function(e){
     });
 })
 
-let $area = $("#component-area");
-$(".component").click(function(e){
-    e.preventDefault();
-    let title = $(e.currentTarget).find(".component-title").text();
-    let img = $(e.currentTarget).find("img");
-    try {
-        let html = `
-    <div class="card">
-        <div class="card-body">
-            <img class="d-block w-100" src="${img[0].src}">
-            <div class="card-title text-center mt-2">${title}</div>
-        </div>
-    </div>
-    `;
-    $area.html(html);
-    } catch (error) {
-       console.log(error); 
-    }
-});
-
 // auth
 
 function unAuthMode(el="",state){
