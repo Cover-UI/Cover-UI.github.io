@@ -38,7 +38,7 @@ permalink: /components/
                         <div class="card">
                             <div class="card-body text-center">
                                 <span class="d-block"><img src="{{c.thumbnail}}" alt="{{c.title}}"></span>
-                                <div class="text-dark component-title mt-2">{{c.title}}</div>
+                                <a href="{{c.url}}"><div class="text-dark component-title mt-2 text-decoration-none">{{c.title}}</div></a>
                                 <small class="d-none component-tag">
                                     {% for t in c.tags %}
                                         {{t}}
