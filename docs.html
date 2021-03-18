@@ -13,15 +13,26 @@ permalink: /docs/
     height: 5rem;
 }
 </style>
+{% assign parents = "getting-started,theme-basics,template-files,theme-functonality,customizer,theme-security,advanced-theme-topic,releasing-your-theme" | split: "," %}
 
-
+      {% for p in parents %}
                 {% for c in site.wp_theme_docs %}
              <div>
+                            
+                 
+
+        
+                {% if c.path contains p %}
                                 <a href="{{c.url}}"><div class="text-dark component-title mt-2 text-decoration-none">{{c.title}}</div></a>
                   {{c.path}}
+                   
+                {% endif %}
+         
+
                   </div>           
                    
                 {% endfor %}
 
-
+      
+                {% endfor %}
 
