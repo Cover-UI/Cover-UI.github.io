@@ -18,16 +18,10 @@ permalink: /docs/
                 {% for c in site.wp_theme_docs %}
              <div>
                                 <a href="{{c.url}}"><div class="text-dark component-title mt-2 text-decoration-none">{{c.title}}</div></a>
+                  {{c.path}}
                   </div>           
                    
                 {% endfor %}
 
 
-<hr>
-<hr>
-           {% for c in site.wp_theme_docs.docs %}
-             <div>
-                           {{c.path}}
-                  </div>           
-                   
-                {% endfor %}
+
