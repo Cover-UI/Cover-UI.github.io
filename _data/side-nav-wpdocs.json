@@ -1,0 +1,30 @@
+[
+    {
+      "plural": true,
+      "title": "Getting Started",
+      "uri": "/wp-theme-handbook/getting-started/",
+      "menus": [{
+        "title": "What is a theme?",
+        "uri": "/wp-theme-handbook/getting-started/what-theme/",
+      },
+      {
+        "title": "Who should read this book?",
+        "uri": "/wp-theme-handbook/getting-started/what-theme/",
+      },
+      {
+        "title": "Menu3",
+        "uri": "#",
+      }]
+    },
+    {
+      "plural": false,
+      "title": "Blog",
+      "uri": "/blog/"
+    },
+    {
+      "plural": false,
+      "title": "Components",
+      "uri": "/components/"
+    }
+    
+]
