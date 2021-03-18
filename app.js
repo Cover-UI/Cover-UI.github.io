@@ -104,7 +104,7 @@ $(document).ready(function(){
                     docStructure[dirname].push(x);
                 }else{
                     var dirname2 = x.path.split("/")[0];
-                    setArray(docStructure,dirname2)
+                    setArray(docStructure[dirname],dirname2)
                     
                     docStructure[dirname][dirname2].push(x);
                 }
