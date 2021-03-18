@@ -90,3 +90,12 @@ collections:
   wp_theme_docs:
     output: true
     permalink: /:collection/:title/
+    order:
+      - getting-started
+      - theme-basics
+      - template-files
+      - theme-functonality
+      - customizer
+      - theme-security
+      - advanced-theme-topic
+      - releasing-your-theme
