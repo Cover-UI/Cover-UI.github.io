@@ -89,3 +89,4 @@ collections:
     output: true
   wp_theme_docs:
     output: true
+    permalink: /:collection/:title/
