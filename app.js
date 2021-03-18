@@ -214,12 +214,12 @@ function compare(a, b) {
 
 
 $(document).ready(function(){
-    let docStructure = [];    
     var api = false;
     fetch("/wp-docs-search.json").then(x=> x.json()).then(a=> {api = a;}).catch(e => console.log(e))
    
     
     setTimeout(function(){
+        let docStructure = [];    
         api.forEach(x => {
             x.path = x.path.split("_wp_theme_docs/")[1];
             var _dir = isDir( x.path );
