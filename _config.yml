@@ -87,5 +87,6 @@ exclude:
 collections:
   components:
     output: true
-  wp-theme-docs:
+  wp_theme_docs:
     output: true
+    permalink: /:collection/:path/
