@@ -63,6 +63,11 @@ $("#signout").click(() => {
 
 $(document).ready(DOMLoaded);
 
+let allKeys = ["advanced-theme-topic","customizer","getting-started","releasing-your-theme","submitting","theme-basics","template-files","theme-functonality","core-supported","theme-security"];
+let sortedKeys = ["getting-started","theme-basics","template-files","theme-functonality","customizer","theme-security","advanced-theme-topic","releasing-your-theme"];
+
+
+
 function isDir(path){return path.search("/") != -1;}
 function setArray(o,l){
     if(o[l] == undefined){
@@ -77,6 +82,132 @@ function setPath(p){
         path.push(arr[i]);
     }
     return path.join("/");
+}
+
+function setSingle(o){
+    return `
+    <li class="nav-item">
+     
+      <a class="nav-link text-muted" href="${o.url}">
+
+        <span class="d-flex justify-content-between">
+          <span class="d-block">
+            ${o.title}
+          </span>
+
+        </span>
+      </a>
+
+    </li>
+`;
+}
+
+function setPlural(l,arr){
+    let subhtml = "";
+    
+    for(var i = 0; i < allKeys.length; i++){
+        let k = allKeys[i];
+        if(k in arr){
+            subhtml += setSubPlural(k,arr[k]);
+        }
+    }
+    
+    
+    
+    for(var i = 0; i < arr.length; i++){
+        subhtml += setSubSingle(arr[i]);
+    }
+    
+    
+    return `
+    <li class="nav-item">
+          
+            <a class="nav-link text-muted" data-bs-toggle="collapse" href="#${l}" role="button" aria-expanded="false" aria-controls="${l}">
+          
+            <span class="d-flex justify-content-between">
+              <span class="d-block">
+                ${l}
+              </span>
+                
+              <i class="material-icons d-block">
+                keyboard_arrow_down
+              </i>
+            
+            </span>
+          </a>
+          
+          <nav class="collapse" id="${l}">
+            <ul class="list-group list-group-flush ms-3">
+            
+               ${subhtml}
+              
+            </ul>
+           
+          </nav>
+          
+        </li>
+`;
+}
+
+
+function setSubSingle(o){
+    return `
+<li class="list-group-item">
+  <a class="text-muted" href="${o.url}"> ${o.title}</a>
+</li>
+`
+}
+
+function setSubPlural(l,arr){
+    let subhtml = "";
+    
+    for(var i = 0; i < arr.length; i++){
+        subhtml += setSubSingle(arr[i]);
+    }
+    
+    return `
+<li class="list-group-item">
+  <a class="nav-link text-muted" data-bs-toggle="collapse" href="#${l}" role="button" aria-expanded="false" aria-controls="${l}">
+          
+            <span class="d-flex justify-content-between">
+              <span class="d-block">
+                ${l}
+              </span>
+                
+              <i class="material-icons d-block">
+                keyboard_arrow_down
+              </i>
+            
+            </span>
+          </a>
+          
+          <nav class="collapse" id="${l}">
+            <ul class="list-group list-group-flush ms-3">
+            
+              ${subhtml}
+              
+            </ul>
+          </nav>
+</li>
+`
+}
+
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function compare(a, b) {
+  // Use toUpperCase() to ignore character casing
+  const bandA = a.order;
+  const bandB = b.order;
+
+  let comparison = 0;
+  if (bandA > bandB) {
+    comparison = 1;
+  } else if (bandA < bandB) {
+    comparison = -1;
+  }
+  return comparison;
 }
 
 
@@ -111,6 +242,16 @@ $(document).ready(function(){
             }
         })
         
+        let docStructure = docStructure.sort(compare);
+        for(var i = 0; i < docStructure.length; i++){
+            $("#wp-docs").html( $("#wp-docs").html() + setSingle( docStructure[i] ) );    
+        }
+        for(var i = 0; i < sortedKeys.length; i++){
+            $("#wp-docs").html( $("#wp-docs").html() + setPlural( capitalizeFirstLetter( sortedKeys[i].replace("-"," ") )  , docStructure[ sortedKeys[i] ] ) );    
+        }
+        
         
     },2000)
+    
+    
 })
