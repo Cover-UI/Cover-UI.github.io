@@ -1,0 +1,23 @@
+---
+layout: page
+title: Docs
+permalink: /docs/
+---
+
+<style>
+.sc-col{
+    height: calc( 100vh - 116px );
+}
+.component img{
+    width: 100%;
+    height: 5rem;
+}
+</style>
+
+
+                {% for c in site.wp_theme_docs %}
+             <div>
+                                <a href="{{c.url}}"><div class="text-dark component-title mt-2 text-decoration-none">{{c.title}}</div></a>
+                  </div>           
+                   
+                {% endfor %}
