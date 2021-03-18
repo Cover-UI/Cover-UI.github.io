@@ -211,8 +211,10 @@ function compare(a, b) {
 }
 
 
-let docStructure = []; 
+
+
 $(document).ready(function(){
+    let docStructure = [];    
     var api = false;
     fetch("/wp-docs-search.json").then(x=> x.json()).then(a=> {api = a;}).catch(e => console.log(e))
    
