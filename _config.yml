@@ -87,3 +87,5 @@ exclude:
 collections:
   components:
     output: true
+  wp-theme-docs:
+    output: true
