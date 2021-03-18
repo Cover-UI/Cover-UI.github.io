@@ -251,8 +251,20 @@ $(document).ready(function(){
             $("#wp-docs").html( $("#wp-docs").html() + setPlural( capitalizeFirstLetter( sortedKeys[i].replace("-"," ") )  , docStructure[ sortedKeys[i] ] ) );    
         }
         
+        var collapseElementList = [].slice.call(document.querySelectorAll('#wp-docs .collapse'))
+        var collapseList = collapseElementList.map(function (collapseEl) {
+          return new bootstrap.Collapse(collapseEl,{toggle:false})
+        });
+        
+        collapseList.forEach((el)=>{
+            $(el._trigggerArray[0]).click(el.show());
+        })
+        
         
     },2000)
     
     
 })
+
+
+
