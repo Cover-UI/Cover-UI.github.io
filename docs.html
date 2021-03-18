@@ -16,31 +16,23 @@ permalink: /docs/
 {% assign parents = "getting-started,theme-basics,template-files,theme-functonality,customizer,theme-security,advanced-theme-topic,releasing-your-theme" | split: "," %}
 
       {% for p in parents %}
-{% assign files = "," | split: "," %}
+
 
                 {% for c in site.wp_theme_docs %}
              <div>
                             
                  
-
+<a href="{{x.url}}"><div class="text-dark component-title mt-2 text-decoration-none">{{x.title}}</div></a>
+                  {{x.path}}
         
-                {% if c.path contains p %}
-{% assign files = files | concat : c %}
-                 
-                  
-                   
-                {% endif %}
+            
          
 
                   </div>           
                    
                 {% endfor %}
-{% assign files_sort = files | sort: "order" %}
-                
-{% for x in files_sort %}
-<a href="{{x.url}}"><div class="text-dark component-title mt-2 text-decoration-none">{{x.title}}</div></a>
-                  {{x.path}}
-                {% endfor %}
+
+
                 {% endfor %}
 
 
