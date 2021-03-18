@@ -62,3 +62,38 @@ $("#signout").click(() => {
 
 
 $(document).ready(DOMLoaded);
+
+function isDir(path){return path.search("/") != -1;}
+
+let docStructure = []; 
+$(document).ready(function(){
+    var api = false;
+    fetch("/wp-docs-search.json").then(x=> x.json()).then(a=> {api = a;}).catch(e => console.log(e))
+   
+    
+    setTimeout(function(){
+        api.forEach(x => {
+            x.path = x.path.split("_wp_theme_docs/")[1];
+            var _dir = isDir( x.path );
+            
+            if(!_dir){
+                docStructure.push(x);
+            }else{
+                var dirname = x.path.split("/")[0];
+                docStructure[dirname] = [];
+                
+                x.path = x.path.split("/")[1];
+                var _dir = isDir( x.path );
+
+                if(!_dir){
+                    docStructure.push(x);
+                }else{
+                    docStructure[dirname].push(x);
+
+                }
+            }
+        })
+        
+        
+    },2000)
+})
