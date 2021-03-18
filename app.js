@@ -72,11 +72,11 @@ function setArray(o,l){
 
 function setPath(p){
     var arr = p.split("/");
-    var path = "";
+    var path = [];
     for(var i = 1; i < arr.length; i++){
-        path += arr[i];
+        path.push(arr[i]);
     }
-    return path;
+    return path.join("/");
 }
 
 
@@ -103,8 +103,10 @@ $(document).ready(function(){
                 if(!_dir){
                     docStructure[dirname].push(x);
                 }else{
-                    docStructure.push(x);
-
+                    var dirname2 = x.path.split("/")[0];
+                    setArray(docStructure,dirname2)
+                    
+                    docStructure[dirname][dirname2].push(x);
                 }
             }
         })
