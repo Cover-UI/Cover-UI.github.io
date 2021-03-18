@@ -211,15 +211,14 @@ function compare(a, b) {
 }
 
 
-
-
+let docStructure = [];   
 $(document).ready(function(){
     var api = false;
     fetch("/wp-docs-search.json").then(x=> x.json()).then(a=> {api = a;}).catch(e => console.log(e))
    
     
     setTimeout(function(){
-        let docStructure = [];    
+      
         api.forEach(x => {
             x.path = x.path.split("_wp_theme_docs/")[1];
             var _dir = isDir( x.path );
@@ -244,7 +243,7 @@ $(document).ready(function(){
             }
         })
         
-        let docStructure = docStructure.sort(compare);
+        docStructure = docStructure.sort(compare);
         for(var i = 0; i < docStructure.length; i++){
             $("#wp-docs").html( $("#wp-docs").html() + setSingle( docStructure[i] ) );    
         }
