@@ -6,7 +6,8 @@
 
       "title"    : "{{ wpdoc.title | escape }}",
       "url"      : "{{ site.baseurl }}{{ wpdoc.url }}",
-      "path"     : "{{ wpdoc.path }}"
+      "path"     : "{{ wpdoc.path }}",
+      "order"    : "{{ wpdoc.order | at_least: 0 }}"
 
     } {% unless forloop.last %},{% endunless %}
   {% endfor %}
