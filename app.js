@@ -257,7 +257,7 @@ $(document).ready(function(){
         });
         
         collapseList.forEach((el)=>{
-            $(el._trigggerArray[0]).click(el.show());
+            $(el._triggerArray[0]).click(el.show());
         })
         
         
