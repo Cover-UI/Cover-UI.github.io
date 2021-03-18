@@ -64,6 +64,12 @@ $("#signout").click(() => {
 $(document).ready(DOMLoaded);
 
 function isDir(path){return path.search("/") != -1;}
+function setArray(o,l){
+    if(o[l] == undefined){
+        o[l] = [];
+    }
+}
+
 
 let docStructure = []; 
 $(document).ready(function(){
@@ -80,7 +86,7 @@ $(document).ready(function(){
                 docStructure.push(x);
             }else{
                 var dirname = x.path.split("/")[0];
-                docStructure[dirname] = [];
+                setArray(docStructure,dirname)
                 
                 x.path = x.path.split("/")[1];
                 var _dir = isDir( x.path );
