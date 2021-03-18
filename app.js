@@ -86,9 +86,9 @@ $(document).ready(function(){
                 var _dir = isDir( x.path );
 
                 if(!_dir){
-                    docStructure.push(x);
-                }else{
                     docStructure[dirname].push(x);
+                }else{
+                    docStructure.push(x);
 
                 }
             }
