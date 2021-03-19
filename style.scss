@@ -1,6 +1,8 @@
 ---
 ---
 @import "highlights";
+@import "svg-icons";
+
 
 .preloader{
     position: fixed;
@@ -20,3 +22,8 @@ body.preload{
     overflow: hidden;
 }
 
+blockquote{
+    background: lightgrey;
+    padding: 1rem;
+    border-left: 4px solid var(--bs-dark);
+}
