@@ -1,0 +1,8 @@
+<figure>
+    <a href="{% if include.url %}{{ include.url }}{% else %}#{% endif %}">
+    <img class="img-fluid" src="{{ include.src }}" alt="{{ page.title }}{% if include.alt %}{{ include.alt }}{% else %}{{ include.src }}{% endif %}"/>
+    </a>
+    {% if include.caption %}
+    <figcaption>{{ include.caption }}</figcaption>
+    {% endif %}
+</figure>

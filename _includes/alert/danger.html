@@ -1,0 +1,8 @@
+<div class="alert alert-danger" role="alert">
+    <h4 class="alert-heading"> <i class="material-icons">error</i> </h4>
+    <p>{{ include.content }}</p>
+    {% if include.botNote %}
+    <hr>
+    <p class="mb-0">{{ include.botNote }}</p>
+    {% endif %}
+</div>

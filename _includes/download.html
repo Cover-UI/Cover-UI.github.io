@@ -1,0 +1,7 @@
+<p class="bg-light p-3 d-flex justify-content-between">
+    <div>
+        Download File: {{ include.url | split:"/" | last }}
+    </div>
+    <a class="d-block btn btn-outline-success" href="{{ include.url }}" download role="button"><i class="material-icons">file_download</i> Download</a>
+</p>
+
