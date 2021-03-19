@@ -108,12 +108,12 @@ function setPlural(l,arr){
     for(var i = 0; i < allKeys.length; i++){
         let k = allKeys[i];
         if(k in arr){
-            subhtml += setSubPlural(k,arr[k]);
+            subhtml += setSubPlural(capitalizeFirstLetter( k.replaceAll("-"," ") ),arr[k]);
         }
     }
     
     
-    
+    arr = arr.sort(compare);
     for(var i = 0; i < arr.length; i++){
         subhtml += setSubSingle(arr[i]);
     }
@@ -160,6 +160,7 @@ function setSubSingle(o){
 
 function setSubPlural(l,arr){
     let subhtml = "";
+    arr = arr.sort(compare);
     
     for(var i = 0; i < arr.length; i++){
         subhtml += setSubSingle(arr[i]);
@@ -248,7 +249,7 @@ $(document).ready(function(){
             $("#wp-docs").html( $("#wp-docs").html() + setSingle( docStructure[i] ) );    
         }
         for(var i = 0; i < sortedKeys.length; i++){
-            $("#wp-docs").html( $("#wp-docs").html() + setPlural( capitalizeFirstLetter( sortedKeys[i].replace("-"," ") )  , docStructure[ sortedKeys[i] ] ) );    
+            $("#wp-docs").html( $("#wp-docs").html() + setPlural( capitalizeFirstLetter( sortedKeys[i].replaceAll("-"," ") )  , docStructure[ sortedKeys[i] ] ) );    
         }
         
         var collapseElementList = [].slice.call(document.querySelectorAll('#wp-docs .collapse'))
