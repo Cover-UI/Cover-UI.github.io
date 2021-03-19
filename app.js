@@ -63,7 +63,7 @@ $("#signout").click(() => {
 
 $(document).ready(DOMLoaded);
 
-let allKeys = ["advanced-theme-topic","customizer","getting-started","releasing-your-theme","submitting","theme-basics","template-files","theme-functonality","core-supported","theme-security"];
+let allKeys = ["advanced-theme-topic","customizer","getting-started","releasing-your-theme","submitting","theme-basics","template-files","required-template-files","theme-functonality","core-supported","theme-security"];
 let sortedKeys = ["getting-started","theme-basics","template-files","theme-functonality","customizer","theme-security","advanced-theme-topic","releasing-your-theme"];
 
 
