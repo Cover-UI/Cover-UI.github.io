@@ -1,12 +1,97 @@
 ---
 layout: app
-title: Hello World
-js: popper,jquery
+title: Application Browser Check
+js: jquery
 css: bootstrap-css
 ---
+<div class="card">
+    <div class="card-header">
+        <h3>Browser Check</h3>
+    </div>
+    <div class="card-body">
+        <p>
+            For using all our online apps, you should pass all tests in this page.  
+        </p>
+    </div>
+    <div class="card-divider"></div>
+    <div class="card-body">
+        <ul class="list-group" id="check-log-area">
 
-## Hi Guys
+        </ul>
+    </div>
+</div>
 
 <script>
-console.log($("body"));
+let $log = $("#check-log-area");
+
+function msg(msg){
+    let el = $("<li>",{class:"list-group-item"});
+    el.html(msg);
+    return el;
+}
+
+var browser_log_arr = []
+
+function coverLog(l){
+    browser_log_arr.push(l);
+}
+
+function isCanvasSupported(){
+    var elem = document.createElement('canvas');
+    return !!(elem.getContext && elem.getContext('2d'));
+}
+
+if( navigator.mediaDevices){
+    $log.append( msg("Media is supported." ) );
+    coverLog("media");
+}else{
+    $log.append( msg("Media is not supported." ) );
+}
+
+if( navigator.geolocation ){
+    $log.append( msg("Location is supported." ) );
+    coverLog("location");
+}else{
+    $log.append( msg("Location is not supported." ) );
+}
+
+if( navigator.userAgent ){
+    $log.append( msg("User Agent is supported." ) );
+    $log.append( msg("User Agent: " + navigator.userAgent ) );
+    coverLog("userAgent");
+
+}else{
+    $log.append( msg("User Agent is not supported." ) );
+}
+
+if( localStorage ){
+    $log.append( msg("Local Storage is supported." ) );
+    coverLog("localStorage");
+
+}else{
+    $log.append( msg("Local Storage is not supported." ) );
+}
+
+if( sessionStorage ){
+    $log.append( msg("Session Storage is supported." ) );
+    coverLog("sessionStorage");
+}else{
+    $log.append( msg("Session Storage is not supported." ) );
+}
+
+if( WebSocket ){
+    $log.append( msg("WebSocket is supported." ) );
+    coverLog("webSocket");
+}else{
+    $log.append( msg("WebSocket is not supported." ) );
+}
+
+if( isCanvasSupported() ){
+    $log.append( msg("WebSocket is supported." ) );
+    coverLog("canvas");
+}else{
+    $log.append( msg("WebSocket is not supported." ) );
+}
+
+localStorage.setItem("cover-ui-browser-check", JSON.stringify( browser_log_arr ) );
 </script>
