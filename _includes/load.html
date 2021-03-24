@@ -1,13 +1,22 @@
-{% for dep in site.dependencies %}
-    {% if include.css contains dep.label %}
-        <!-- {{ dep.label }} - {{ dep.version }} -->
-        <link rel="stylesheet" href="{{ dep.src }}">
-        <!-- /{{ dep.label }} - {{ dep.version }} -->
-    {% endif %}
+{% assign styles = include.css | split: "," %}
+{% assign scripts = include.js | split: "," %}
 
-    {% if include.js contains dep.label %}
-    <!-- {{ dep.label }} - {{ dep.version }} -->
-        <script src="{{ dep.src }}"></script>
-    <!-- /{{ dep.label }} - {{ dep.version }} -->
-    {% endif %}
+{% for s in styles  %}
+    {% for dep in site.dependencies  %}
+        {% if s == dep.label %}
+            <!-- {{ dep.label }} - {{ dep.version }} -->
+            <link rel="stylesheet" href="{{ dep.src }}">
+            <!-- /{{ dep.label }} - {{ dep.version }} -->
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+
+{% for s in scripts  %}
+    {% for dep in site.dependencies  %}
+        {% if s == dep.label %}
+        <!-- {{ dep.label }} - {{ dep.version }} -->
+            <script src="{{ dep.src }}"></script>
+        <!-- /{{ dep.label }} - {{ dep.version }} -->
+        {% endif %}
+    {% endfor %}
 {% endfor %}
