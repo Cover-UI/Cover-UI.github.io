@@ -3,7 +3,7 @@
   css: {% if include.css %} "{{ include.css }}" {% else %} "" {% endif %},
   js: {% if include.js %} "{{ include.js }}" {% else %} "" {% endif %},
   }
-  fetch("./dependencies-search.json")
+  fetch("/dependencies-search.json")
   .then(d => d.json())
   .then(data => {
       for (let i = 0; i < data.length; i++) {
