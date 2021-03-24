@@ -1,7 +1,7 @@
 ---
 layout: app
 title: Hello World
-js:jquery
+js: jquery
 ---
 
 ## Hi Guys
