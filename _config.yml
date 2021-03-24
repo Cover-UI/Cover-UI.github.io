@@ -99,3 +99,7 @@ collections:
       - theme-security
       - advanced-theme-topic
       - releasing-your-theme
+  apps:
+    output: true
+    permalink: /apps/:title/
+     
