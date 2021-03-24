@@ -82,7 +82,12 @@ exclude:
   - LICENSE
   - README.md
   - CNAME
- 
+
+feed:
+  collections:
+    - components
+    - wp_theme_docs
+    - apps
 
 collections:
   components:
