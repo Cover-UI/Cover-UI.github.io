@@ -1,0 +1,20 @@
+<footer class="py-5 bg-dark">
+    <div class="container">
+        <div class="row">
+            {% for f in site.data.appfooter %}
+            <div class="col-12 col-md-3">
+                <span class="text-light">{{f.title}}</span>
+                <hr class="bg-light m-1">
+                <ul class="p-0">
+                    {% for d in f.datas %}
+                    <li><a class="text-muted" href="{{d.url}}">{{d.title}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</footer>
+<div class="bg-dark text-muted py-2 text-center">
+    &copy; {{site.name}} Apps. Tüm Hakları Saklıdır.
+</div>
