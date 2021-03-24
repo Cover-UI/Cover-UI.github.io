@@ -1,0 +1,71 @@
+[
+    {
+        "title": "Stingy Developer",
+        "datas": [
+            {
+                "title": "Blog",
+                "url" : "https://stingy-developer.blogspot.com/"
+            },
+            {
+                "title": "Medium",
+                "url" : "https://medium.com/stingy-developer"
+            },
+            {
+                "title": "YouTube",
+                "url" : "https://www.youtube.com/channel/UCczSw_VRVvRKDGZopL_0LlA"
+            },
+            {
+                "title": "Instagram",
+                "url" : "https://instagram.com/stingy-developer"
+            },
+            {
+                "title": "Twitter",
+                "url" : "https://twitter.com/DeveloperStingy"
+            }
+        ]
+    },
+    {
+        "title": "Pages",
+        "datas": [
+            {
+                "title": "Home",
+                "url" : "https://cover-ui.github.io/"
+            },
+            {
+                "title": "About",
+                "url" : "/about/"
+            },
+            {
+                "title": "Blog",
+                "url" : "/posts/"
+            },
+            {
+                "title": "Components",
+                "url" : "/components/"
+            }
+        ]
+    },
+    {
+        "title": "Account",
+        "datas": [
+            {
+                "title": "Register",
+                "url" : "/signup/"
+            },
+            {
+                "title": "Sign In",
+                "url" : "/signin/"
+            },
+            {
+                "title": "Profile",
+                "url" : "/profile/"
+            }
+        ]
+    },
+    {
+        "title": "Other Pages",
+        "datas": [
+           
+        ]
+    }
+]
