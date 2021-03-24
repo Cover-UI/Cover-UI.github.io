@@ -107,4 +107,6 @@ collections:
   apps:
     output: true
     permalink: /apps/:title/
+  dependencies:
+    output: false
      
