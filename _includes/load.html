@@ -8,12 +8,12 @@
   .then(data => {
       for (let i = 0; i < data.length; i++) {
           const dep = data[i];
-          if ( dep.label in deps.js.split(",") ) {
+          if ( deps.js.search(dep.label) != -1 ) {
               var el = document.createElement("script");
               el.src = dep.src;
               document.querySelector("body").appendChild(el);
           }
-          if ( dep.label in deps.css.split(",") ) {
+          if ( deps.css.search(dep.label) != -1 ) {
               var el = document.createElement("link");
               el.src = dep.src;
               el.rel = "stylesheet";
