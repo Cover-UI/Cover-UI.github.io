@@ -92,10 +92,10 @@ if( WebSocket ){
 }
 
 if( isCanvasSupported() ){
-    $log.append( msg("WebSocket is supported." ) );
+    $log.append( msg("Canvas is supported." ) );
     coverLog("canvas");
 }else{
-    $log.append( msg("WebSocket is not supported." ) );
+    $log.append( msg("Canvas is not supported." ) );
 }
 
 localStorage.setItem("cover-ui-browser-check", JSON.stringify( browser_log_arr ) );
