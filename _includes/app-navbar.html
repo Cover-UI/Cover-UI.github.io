@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-md navbar-light">
+    <div class="container">
+      <a class="navbar-brand d-flex" href="{{ site.url }}">
+        <img class="ms-3" src="{{ site.avatar }}" style="width: 50px;" />
+        <div class="my-auto ms-3">
+          {{ site.name }} Apps
+        </div>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          {% for menu in site.data.appmenu %}
+            {% if menu.plural==false %}
+                <li class="nav-item {{menu.class}}">
+                    <a class="nav-link single {{menu.class}}" href="{{menu.uri}}">
+                          {{menu.title}}
+                    </a>
+                </li>
+            {% else %}
+                <li class="nav-item dropdown {{menu.class}}">
+                    <a class="nav-link dropdown-toggle {{menu.class}}" href="#" id="navbarDropdown" role="button"
+                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{menu.title|capitalize}}
+                    </a>
+                    <div class="dropdown-menu p-0" aria-labelledby="navbarDropdown">
+                        
+                        {% for m in menu.menus %}
+                            <a class="dropdown-item" href="{{m.uri}}">{{m.title|capitalize}}</a>
+                        {% endfor %}                    
+                    </div>
+                </li>
+            {% endif %}
+        {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </nav>
