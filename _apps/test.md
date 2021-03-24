@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: appgeneral
 title: Hello World
 ---
 
