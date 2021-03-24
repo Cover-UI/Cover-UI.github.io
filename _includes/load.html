@@ -1,24 +1,13 @@
-<script>
-  var deps = {
-  css: {% if include.css %} "{{ include.css }}" {% else %} "" {% endif %},
-  js: {% if include.js %} "{{ include.js }}" {% else %} "" {% endif %},
-  }
-  fetch("/dependencies-search.json")
-  .then(d => d.json())
-  .then(data => {
-      for (let i = 0; i < data.length; i++) {
-          const dep = data[i];
-          if ( deps.js.search(dep.label) != -1 ) {
-              var el = document.createElement("script");
-              el.src = dep.src;
-              document.querySelector("head").appendChild(el);
-          }
-          if ( deps.css.search(dep.label) != -1 ) {
-              var el = document.createElement("link");
-              el.src = dep.src;
-              el.rel = "stylesheet";
-              document.querySelector("head").appendChild(el);
-          }
-      }
-  })
-</script>
+{% for dep in site.dependencies %}
+    {% if include.css contains dep.label %}
+        <!-- {{ dep.label }} - {{ dep.version }} -->
+        <link rel="stylesheet" href="{{ dep.src }}">
+        <!-- /{{ dep.label }} - {{ dep.version }} -->
+    {% endif %}
+
+    {% if include.js contains dep.label %}
+    <!-- {{ dep.label }} - {{ dep.version }} -->
+        <script src="{{ dep.src }}"></script>
+    <!-- /{{ dep.label }} - {{ dep.version }} -->
+    {% endif %}
+{% endfor %}
