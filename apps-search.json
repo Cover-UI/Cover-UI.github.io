@@ -1,0 +1,12 @@
+---
+---
+[
+  {% for app in site.apps %}
+    {
+
+      "title"    : "{{ app.title }}",
+      "url"      : "{{ site.baseurl }}{{ wpdoc.url }}"
+
+    } {% unless forloop.last %},{% endunless %}
+  {% endfor %}
+]
