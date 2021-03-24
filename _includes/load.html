@@ -11,13 +11,13 @@
           if ( dep.label in deps.js.split(",") ) {
               var el = document.createElement("script");
               el.src = dep.src;
-              document.querySelector("body").append(el);
+              document.querySelector("body").appendChild(el);
           }
           if ( dep.label in deps.css.split(",") ) {
               var el = document.createElement("link");
               el.src = dep.src;
               el.rel = "stylesheet";
-              document.querySelector("body").append(el);
+              document.querySelector("body").appendChild(el);
           }
       }
   })
