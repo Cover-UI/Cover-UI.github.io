@@ -5,7 +5,7 @@
     {
 
       "title"    : "{{ app.title }}",
-      "url"      : "{{ site.baseurl }}{{ wpdoc.url }}"
+      "url"      : "{{ site.baseurl }}{{ app.url }}"
 
     } {% unless forloop.last %},{% endunless %}
   {% endfor %}
