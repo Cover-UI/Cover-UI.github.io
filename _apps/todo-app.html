@@ -136,7 +136,7 @@ function show(){
         for (let i = 0; i < AllTodos.length; i++) {
         const todo = AllTodos[i];
         let el = document.createElement("li");
-        el.className = "list-group-item";
+        el.className = "list-group-item d-flex justify-content-between";
         el.textContent = todo;
         let el1 = document.createElement("a");
         el1.href = "";
