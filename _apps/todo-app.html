@@ -107,7 +107,7 @@ function removeTodo(e){
     localStorage.removeItem("Todos");
     h = update(h);
     localStorage.setItem("Todos",JSON.stringify(h));
-    control();
+    
 }
     e.preventDefault();
 }
@@ -149,7 +149,7 @@ function show(){
         todoList.appendChild(el);
     }
 }
-control();
+
 }
 
 function search(e){
@@ -170,12 +170,7 @@ function searchout(){
     }
 }
 
-function control(){
-if(localStorage.getItem("Todos") == "[]"){
-    todoList1.appendChild(xy);
-    isAlert = "True";
-}
-}
+
 
 function update(h){
     let j = [];
