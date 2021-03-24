@@ -1,7 +1,7 @@
 <script>
   var deps = {
-  css: {{ include.css | split: "," }},
-  js: {{ include.js | split: "," }}
+  css: {% if include.css %} {{ include.css | split: "," }} {% else %} [] {% endif %},
+  js: {% if include.js %} {{ include.js | split: "," }} {% else %} [] {% endif %},
   }
   fetch(url)
   .then(d => d.json())
