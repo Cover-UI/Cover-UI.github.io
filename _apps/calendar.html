@@ -1,0 +1,74 @@
+---
+layout: app
+title: Calendar
+css: material-icons,bootstrap-css
+js: jquery,popper,bootstrap-js
+---
+
+<style>
+        .vh-100{
+            height: 100vh;
+        }
+        .badge-icon{
+            font-size: 11px;
+            padding-right: 5px;
+        }
+        .widget-sec{
+            height: 5rem;
+        }
+        .calendar-col{
+            overflow: hidden;
+            height: 100vh;
+        }
+        .calendar-section{
+            overflow: hidden;
+            overflow-y: scroll;
+            height: calc( 100vh - 42px);
+        }
+        .selected{
+            border:3px solid black;
+        }
+    </style>
+    
+    <div class="container-fluid">
+        <div class="row vh-100">
+            <div class="col-12 col-md-2 px-0 border-end">
+                <div class="py-3 d-flex bg-dark">
+                    <img class="" src="https://cover.js.org/images/logo.png" style="width: 40px; height: 40px;" alt="">
+                    <div class="my-auto mx-3 text-light">
+                        Stingy Developer Apps
+                    </div>      
+                </div>
+                <div class="option-col">
+                    <div class="list-group list-group-flush border-bottom" id="sidebar-buttons">
+
+                    </div>
+                    <div class="option-detail p-3 border" style="display: none;">
+                        
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-12 col-md-10 px-0 calendar-col">
+                <div class="p-2 border">
+                    Calendar
+                </div>
+                <div class="calendar-section">
+                    <table class="table" style="table-layout:fixed">
+                        <tbody class="calendar-table">
+                         
+                        </tbody>
+                    </table>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let data = {}
+    </script>
+    
+    <script src="/assets/calendar-ui.js"></script>
+
+    <script src="/assets/calendar.js"></script>
