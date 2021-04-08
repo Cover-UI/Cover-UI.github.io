@@ -1,6 +1,7 @@
 ---
 layout: post
 title: JQuery Menu is released!
+thumbnail: https://cover.js.org/images/JQuery-menu-thumbnail.png
 ---
 
 JQuery Menu is a JQuery Plugin to create a mobile-first responsive menu.
