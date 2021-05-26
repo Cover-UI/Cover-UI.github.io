@@ -192,9 +192,9 @@ $calendar_sec.scroll(function(e){
 
     if( lastRefresh < e.target.scrollTop + $calendar_sec.height() ){
 
-        let month = def_days[ 34 ].month;
-        let day = def_days[ 34 ].day;
-        let year = def_days[ 34 ].year;
+        let month = def_days[ def_days.length -1 ].month;
+        let day = def_days[ def_days.length -1 ].day;
+        let year = def_days[ def_days.length -1 ].year;
         
         if(month_day[month] == day){
             day = 1;
@@ -210,7 +210,6 @@ $calendar_sec.scroll(function(e){
       
 
         def_days = [];
-        set_def_days();
 
         initMonthWithTime( day, month, year );
 

@@ -41,137 +41,38 @@ function initTooltips(){
 let def_days = [];
 const month_day = [31,28,31,30,31,30,31,31,30,31,30,31];
 
-function set_def_days(){
-    for (let i = 0; i < 35; i++) {
-        def_days.push({
-            day: 0,
-            month: 0,
-            year: 0
-        });
-    }
-}
-
-set_def_days();
-
 
 function initMonth(m){
-    let now = new Date();
-    now = new Date(`${m+ 1} 1 ${now.getFullYear()}`);
-    let index = 0;
-    let begin = now.getDay();
-
-    if(begin-1 > 0){
-        let month = now.getMonth();
-        let day = 0;
-        let year = 0;
-
-        if(month == 0){
-            month = 11;
-            day = month_day[11];
-            year = now.getFullYear() -1;
-
-        }else{
-            day = month_day[now.getMonth()-1];
-            year = now.getFullYear();
-        }
-
+    let x = new Date();
+    x.setDate( x.getDate() - x.getDay() )
+    
+    for (let i = 1; i < 36; i++) {
         
-        index = day;
-        for (let i = begin-2; i > -1; i--) {
-            def_days[i] = {
-                day: index,
-                month: month,
-                year: year
-            }
-            index--;
-            
-        }
-    }
-
-    index = 1;
-    for (let i = begin-1; i < month_day[now.getMonth()]; i++) {
-        def_days[i] = {
-            day: index,
-            month: now.getMonth(),
-            year: now.getFullYear()
-        }
-        index++;
-    }
-
-    month = now.getMonth();
-    day = 0;
-    year = 0;
-    
-    if(month == 11){
-        month = 0;
-        day = month_day[0];
-        year = now.getFullYear() +1;
-
-    }else{
-        day = month_day[now.getMonth()+1];
-        year = now.getFullYear();
-        month++;
-    }
-
-    
-    index = 1;
-
-    for (let i = 0; i < def_days.length; i++) {
-        if( def_days[i].day == 0){
-            def_days[i]= {
-                day: index,
-                month: month,
-                year: year
-            };
-            index++;
-        }
+        x.setDate( x.getDate() + 1 );
+        def_days.push({
+            day: x.getDate(),
+            month: x.getMonth(),
+            year: x.getFullYear()
+        });
         
     }
+    
 }
 
 // init month with certain time
 
 function initMonthWithTime(d,m,y){
-    let now = new Date(`${m+ 1} ${d} ${y}`);
-
-    let index = now.getDate();
-    let l = month_day[now.getMonth()] - index+1;
-    for (let i = 0; i < l; i++) {
-
-        def_days[i] = {
-            day: index,
-            month: now.getMonth(),
-            year: now.getFullYear()
-        }
-        index++;
-    }
-
-    let month = now.getMonth();
-    let day = 0;
-    let year = 0;
+    let x = new Date(`${m+ 1} ${d} ${y}`);
     
-    if(month == 11){
-        month = 0;
-        day = month_day[0];
-        year = now.getFullYear() +1;
-
-    }else{
-        day = month_day[now.getMonth()+1];
-        year = now.getFullYear();
-        month++;
-    }
-
-    index = 1;
-
-    for (let i = 0; i < def_days.length; i++) {
-        if( def_days[i].day == 0){
-            def_days[i]= {
-                day: index,
-                month: month,
-                year: year
-            };
-            index++;
-        }
+    for (let i = 1; i < 36; i++) {
+        
+        
+        def_days.push({
+            day: x.getDate(),
+            month: x.getMonth(),
+            year: x.getFullYear()
+        });
+        x.setDate( x.getDate() + 1 );
         
     }
 }
