@@ -39,7 +39,7 @@ title: My Blog
                         {% if paginator.page == 1 %}
                             <a class="page-link" href="/posts/">1</a>
                         {% else %}
-                            <a class="page-link" href="/posts/page{{page}}/">{{paginator.page}}</a>
+                            <a class="page-link" href="/posts/page{{paginator.page}}/">{{paginator.page}}</a>
                         {% endif %}
                     </li>
                     <li class="page-item {% if paginator.next_page_path %}{% else %}disabled{% endif %}">
