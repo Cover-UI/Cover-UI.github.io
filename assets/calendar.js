@@ -1,3 +1,5 @@
+//$("#select-calendar").change(function(){console.log("a")})
+
 let SIDEBAR_BTTNS = [
     // add note
     {
@@ -151,6 +153,46 @@ let SIDEBAR_BTTNS = [
 
             }
 
+        }
+    },
+    // add settings
+    {
+        icon: "settings",
+        label: "Settings",
+        callback: function(e){
+            $(".option-detail").html("").hide();
+            let $modal = $("<div>",{class:"modal fade modal-dialog-scrollable",id:"settingsModal"}).html(`
+            <div class="modal-dialog">
+                <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="list-group list-group-flush">
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>	
+                </div>
+            </div>`);
+
+            let $modal_list = $modal.find(".list-group");
+            for(var i=0;i<$options.length;i++){
+                let el = $("<button>",{class:"list-group-item list-group-item-action"}).text($options[i].label);
+                el.click($options[i].callback);
+                $modal_list.append(el);
+            }
+
+            $("body").append($modal);
+
+            var myModal = new bootstrap.Modal(document.getElementById("settingsModal"), {
+              keyboard: false
+            });
+
+            myModal.show();
         }
     }
 ]
