@@ -60,8 +60,11 @@ js: jquery,popper,bootstrap-js
                 
             </div>
             <div class="col-12 col-md-10 px-0 calendar-col">
-                <div class="p-2 border">
-                    Calendar
+                <div class="p-2 border d-flex justify-content-between">
+                        <div class="my-auto">Calendar</div> 
+                        <select class="form-select d-inline-block" aria-label="Select Calender" id="select-calender">
+                                  <option selected="main-calender">Main Calender</option>
+                        </select>
                 </div>
                 <div class="calendar-section">
                     <table class="table" style="table-layout:fixed">
