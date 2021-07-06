@@ -1,3 +1,12 @@
+let $options = [
+    {
+        label: "Add Calendar",
+        callback: function(){
+            console.log("add-calendar");
+        }
+    }
+];
+
 //$("#select-calendar").change(function(){console.log("a")})
 
 let SIDEBAR_BTTNS = [
