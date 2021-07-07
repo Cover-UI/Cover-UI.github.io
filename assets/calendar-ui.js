@@ -127,7 +127,7 @@ function save(){
     localStorage.setItem("sd-calendar-data", JSON.stringify(data) );
 }
 
-function load(){
+function load(calendar = "main-calendar"){
     let d = JSON.parse( localStorage.getItem("sd-calendar-data") );
-    data = d != undefined ? d : {};
+    data = d != undefined ? d[calendar] : {};
 }
