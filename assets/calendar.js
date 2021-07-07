@@ -194,9 +194,10 @@ let SIDEBAR_BTTNS = [
                 el.click($options[i].callback);
                 $modal_list.append(el);
             }
-
-            $("body").append($modal);
-
+            if(!( $("#settingsModal").length > 0)){
+                $("body").append($modal);
+            }
+            
             var myModal = new bootstrap.Modal(document.getElementById("settingsModal"), {
               keyboard: false
             });
