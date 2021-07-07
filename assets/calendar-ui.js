@@ -101,8 +101,8 @@ function renderBadge(label,desc,type){
 
 }
 
-function loadAssets(){
-    load();
+function loadAssets(calendar = "main-calendar"){
+    load(calendar);
 
     $(".widget-sec").each(function(i,e){
 
@@ -123,11 +123,18 @@ function loadAssets(){
 }
 
 
-function save(){
-    localStorage.setItem("sd-calendar-data", JSON.stringify(data) );
+function save(calendar = "main-calendar"){
+    let d = JSON.parse( localStorage.getItem("sd-calendar-data") );
+    d[calendar] = data;
+    localStorage.setItem("sd-calendar-data", JSON.stringify(d) );
 }
 
 function load(calendar = "main-calendar"){
     let d = JSON.parse( localStorage.getItem("sd-calendar-data") );
     data = d != undefined ? d[calendar] : {};
 }
+
+$("#select-calendar").change(function(e){
+    loadAssets( $(e.target).val() );
+    
+});
